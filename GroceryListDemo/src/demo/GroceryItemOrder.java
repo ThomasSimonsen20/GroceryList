@@ -1,6 +1,6 @@
 package demo;
 
-public class GroceryItemOrder {
+public class GroceryItemOrder implements Comparable<GroceryItemOrder>{
 
     private String itemName;
     private int pricePerUnit;
@@ -21,5 +21,10 @@ public class GroceryItemOrder {
         return "itemName='" + itemName +
                 ", pricePerUnit=" + pricePerUnit +
                 ", quantity=" + quantity;
+    }
+
+    @Override
+    public int compareTo(GroceryItemOrder groceryItemOrder) {
+        return this.pricePerUnit - groceryItemOrder.pricePerUnit;
     }
 }

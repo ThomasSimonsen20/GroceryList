@@ -3,18 +3,20 @@ package demo;
 import java.util.Arrays;
 
 public class GroceryList {
+
+    // For test purpose, the array can only hold two items
     private GroceryItemOrder[] list = new GroceryItemOrder[2];
     private int counter = 0;
 
-    public void add(GroceryItemOrder o) throws BasketFullException {
+    public void add(GroceryItemOrder itemOrder) throws BasketFullException {
         if (listNotFull()) {
-            list[counter++] = o;
+            list[counter++] = itemOrder;
         }
         else throw new BasketFullException("Maximum number of items reached!");
     }
 
     private boolean listNotFull() {
-        return counter <= list.length;
+        return counter < list.length;
     }
     
     public int getCost() {
@@ -30,8 +32,7 @@ public class GroceryList {
         return Arrays.toString(list);
     }
 
-    //demo
-    public void add(GroceryItemOrder[] list) {
-        this.list = list;
+    public GroceryItemOrder[] getList() {
+        return list;
     }
 }
